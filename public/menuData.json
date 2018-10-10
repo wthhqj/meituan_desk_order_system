@@ -1,0 +1,153 @@
+[
+  {
+    "category": "热销菜",
+    "goods": [
+      {
+        "productID": 1,
+        "title": "瘦肉鲜汤饭",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 2,
+        "title": "猪杂汤饭",
+        "smallPrice": 13,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      }
+    ]
+  },
+  {
+    "category": "饮料",
+    "goods": [
+      {
+        "productID": 3,
+        "title": "汤饭2",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 4,
+        "title": "汤饭3",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 5,
+        "title": "汤饭4",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      }
+    ]
+  },
+  {
+    "category": "饮料2",
+    "goods": [
+      {
+        "productID": 3,
+        "title": "汤饭2",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 4,
+        "title": "汤饭3",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 5,
+        "title": "汤饭4",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      }
+    ]
+  },
+  {
+    "category": "饮料3",
+    "goods": [
+      {
+        "productID": 3,
+        "title": "汤饭2",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 4,
+        "title": "汤饭3",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 5,
+        "title": "汤饭4",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      }
+    ]
+  },
+  {
+    "category": "饮料4",
+    "goods": [
+      {
+        "productID": 3,
+        "title": "汤饭2",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 4,
+        "title": "汤饭3",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      },
+      {
+        "productID": 5,
+        "title": "汤饭4",
+        "smallPrice": 12,
+        "bigPrice": 15,
+        "desc": "中华美食汤饭第一品牌",
+        "quantity": 0,
+        "totalQuantity": 0
+      }
+    ]
+  }
+]
