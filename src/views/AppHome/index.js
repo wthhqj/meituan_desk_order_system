@@ -37,7 +37,7 @@ class AppHome extends React.Component {
           <h1>龙椒美味</h1>
           <p>中餐</p>
           <div className="card">
-            card
+            此处是商家信息
           </div>
         </div>
 

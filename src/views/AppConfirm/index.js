@@ -39,6 +39,10 @@ class AppConfirm extends React.Component {
     this.props.history.go(-1);
   }
 
+  toPay(){
+    console.log('生成订单数据，并发送到服务器');
+  }
+
   render() {
     return (
       <div className="AppConfirm">
@@ -70,7 +74,7 @@ class AppConfirm extends React.Component {
             }}
           </CartListContext.Consumer>
         </div>
-        <Button style={{ background: '#ff6700', color: 'white' }}>下单并支付15元</Button>
+        <Button style={{ background: '#ff6700', color: 'white' }} onClick={this.toPay}>下单并支付15元</Button>
         <div className="two_button">
           <div>
             <Link to="/">点餐</Link>
