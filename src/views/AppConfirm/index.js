@@ -16,7 +16,7 @@ let Avatar = () => {
 let Total = ({ cartList }) => {
   let total = 0;
   let totalQuantity = 0;
-  cartList.forEach( good => {
+  cartList.forEach(good => {
     total += good.quantity * good.smallPrice;
     totalQuantity += good.quantity;
   });
@@ -39,7 +39,7 @@ class AppConfirm extends React.Component {
     this.props.history.go(-1);
   }
 
-  toPay(){
+  toPay() {
     console.log('生成订单数据，并发送到服务器');
   }
 
@@ -48,31 +48,24 @@ class AppConfirm extends React.Component {
       <div className="AppConfirm">
         <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={this.goBack}>提交订单</NavBar>
         <div className="main">
-          <CartListContext.Consumer>
-            {obj => {
-              let cartList = obj.cartList;
-              return (
-                <Card>
-                  <Card.Header title="周阳" thumb={<Avatar />} />
-                  <Card.Body>
-                    <ul className="cart_list">
-                      {cartList.map((good, index) =>
-                        <li key={index}>
-                          <span>{good.title}</span>
-                          <div>
-                            <span>x{good.quantity}</span>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                          <span>¥{good.quantity * good.smallPrice}</span>
-                          </div>
-                        </li>
-                      )}
-                    </ul>
-                  </Card.Body>
-                  <Card.Footer extra={<Total cartList={cartList} />} />
 
-                </Card>)
-            }}
-          </CartListContext.Consumer>
+          <Card>
+            <Card.Header title="周阳" thumb={<Avatar />} />
+            <Card.Body>
+              <ul className="cart_list">
+                <li>
+                  <span>123</span>
+                  <div>
+                    <span>x3</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                          <span>¥20</span>
+                  </div>
+                </li>
+              </ul>
+            </Card.Body>
+            {/* <Card.Footer extra={<Total cartList={cartList} />} /> */}
+          </Card>
+
         </div>
         <Button style={{ background: '#ff6700', color: 'white' }} onClick={this.toPay}>下单并支付15元</Button>
         <div className="two_button">
