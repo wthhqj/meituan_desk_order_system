@@ -1,38 +1,32 @@
 import React from 'react';
 import './index.scss';
 
-import store from '../../store';
-
 import Cart from '../../components/Cart';
 import Good from '../../components/Good';
 
-let cancelListener;
+import axios from 'axios';
 
 class AppHome extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       menu: []
     }
   }
 
+
   componentWillMount() {
-    let listener = () => {
-      let menu = store.getState().menu;
-      this.setState({ menu });
-    }
-    cancelListener = store.subscribe(listener);
-  }
-
-  componentDidMount() {
-    let menu = store.getState().menu;
-    if (!menu) return;
-    this.setState({ menu: menu });
-  }
-
-  componentWillUnmount(){
-    cancelListener();
+    setTimeout(() => {
+      axios({
+        url: '/menuData.json'
+      }).then(res => {
+        this.setState({
+          menu: res.data
+        });
+      });
+    }, 1000);
   }
 
   render() {

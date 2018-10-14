@@ -8,34 +8,12 @@ import AppConfirm from './views/AppConfirm';
 import AppUserCenter from './views/AppUserCenter';
 import AppOrders from './views/AppOrders';
 
-import axios from 'axios';
-
-
 import { CartListContext } from './cartList-context.js'
-
-import store from './store';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount() {
-    console.log('app mounted , menu is loaded');
-    setTimeout(() => {
-      axios({
-        url: '/menuData.json'
-      }).then(res => {
-        let action = {
-          type: 'LOAD_MENU',
-          payLoad: {
-            menu: res.data
-          }
-        }
-        store.dispatch(action);
-      });
-    }, 1000);
   }
 
   render() {

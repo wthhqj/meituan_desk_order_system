@@ -1,0 +1,30 @@
+.AppHome{
+  height: 100%;
+  padding: 0 10px;
+  // background: rgb(202, 202, 202);
+  overflow: scroll;
+  .header{
+    .card{
+      padding: 10px;
+      height: 180px;
+      background: #00C0AD;
+    }
+  }
+  .center{
+    display: flex;
+    .left_list{
+      vertical-align: top;
+      display: inline-block;
+      padding: 0 15px;
+      ul{
+        li{
+          padding: 10px 0;
+        }
+      }
+    }
+    .right_list{
+      flex: 1;
+      display: inline-block;
+    }
+  }
+}
