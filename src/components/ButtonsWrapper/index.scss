@@ -1,0 +1,25 @@
+.ButtonsWrapper{
+  // background: rgb(107, 95, 95);
+  text-align: center;
+  .reduce,.increase{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+  }
+  .quantity{
+    display: inline-block;
+    width: 20px;
+  }
+  .reduce{
+    border: 1px solid gray;
+  }
+  .increase{
+    background: #ff6700;
+    color: white;
+  }
+
+
+
+}
