@@ -22,11 +22,13 @@ let Total = ({ cartList }) => {
     totalQuantity += good.quantity;
   });
 
-  return <div className="total_bar">
-    <span>共{totalQuantity}份</span>
-    <span className="center"> 小计 </span>
-    <span className="price">¥{total}</span>
-  </div>
+  return (
+    <div className="total_bar">
+      <span>共{totalQuantity}份</span>
+      <span className="center"> 小计 </span>
+      <span className="price">¥{total}</span>
+    </div>
+  )
 }
 
 class AppConfirm extends React.Component {
@@ -57,11 +59,6 @@ class AppConfirm extends React.Component {
     console.log('生成订单数据，并发送到服务器');
   }
 
-  // componentDidMount(){
-  //     let menu = store.getState().menu;
-  //     this.setState();
-  // }
-
   render() {
     return (
       <div className="AppConfirm">
@@ -77,6 +74,8 @@ class AppConfirm extends React.Component {
                       <li key={index}>
                         <span>{good.title}</span>
                         <div>
+                          <span>{good.smallPrice}</span>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
                           <span>x{good.quantity}</span>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                           <span>¥{good.quantity * good.smallPrice}</span>
@@ -86,7 +85,7 @@ class AppConfirm extends React.Component {
                 })}
               </ul>
             </Card.Body>
-            {/* <Card.Footer extra={<Total cartList={cartList} />} /> */}
+            <Card.Footer extra={<Total cartList={this.state.cartList} />} />
           </Card>
 
         </div>

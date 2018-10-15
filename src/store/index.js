@@ -57,6 +57,18 @@ let reducer = function(previousState = {}, action){
       }
       return newState;
 
+    case 'REMOVE_ALL':
+      menu.forEach( category => {
+        category.goods.forEach( good => {
+          good.quantity = 0;
+        });
+      });
+      newState = {
+        ...previousState,
+        menu: menu
+      }
+      return newState;
+
     default:
       return previousState;
   }

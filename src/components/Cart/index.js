@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 
 import { withRouter } from 'react-router-dom';
-import { Badge, Modal, List, Stepper, Toast } from 'antd-mobile';
+import { Badge, Modal, List, Stepper, Toast, Icon } from 'antd-mobile';
 
 import { CartListContext } from '../../cartList-context';
 
@@ -97,6 +97,14 @@ class Cart extends React.Component {
     }
   }
 
+  removeAll(){
+    let action = {
+      type: 'REMOVE_ALL',
+      payLoad: {}
+    }
+    store.dispatch(action);
+  }
+
   render() {
     return (
       <div className="Cart">
@@ -118,7 +126,10 @@ class Cart extends React.Component {
           onClose={() => this.setState({ showCartList: false })}
         >
           <div style={{ textAlign: 'left' }}>
-            <h4>购物车</h4>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+              <h4 style={{display: 'inline-block'}}>购物车</h4>
+              <span onClick={this.removeAll.bind(this)}><Icon type="cross-circle" /></span>
+            </div>
             <List>
               {this.state.cartList.map((good, index) => {
                 return (
