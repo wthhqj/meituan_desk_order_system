@@ -67,9 +67,9 @@ class Cart extends React.Component {
   }
 
   showCartList() {
+    
     if(!this.state.cartList.length) {
-      Toast.info('购物车里没东西', 1);
-      return;
+      
     }
     this.setState({ showCartList: true });
   }

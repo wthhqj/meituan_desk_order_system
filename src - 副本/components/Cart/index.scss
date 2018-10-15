@@ -1,0 +1,60 @@
+.Cart{
+  position: fixed;
+  width: 90%;
+  bottom: 20px;
+  // background: rgb(211, 43, 43);
+  display: flex;
+  .left{
+    color: white;
+    background: rgb(58, 58, 58);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 100%;
+    text-align: center;
+  }
+  .right{
+    color: white;
+    background: rgb(58, 58, 58);
+    flex: 1;
+    margin-left: 10px;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
+    .cart_icon{
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 100%;
+      background: rgb(34, 34, 34);;
+      text-align: center;
+      .badge{
+        position: absolute;
+        top: 5px;
+        right: 4px;
+      }
+      i{
+        font-size: 26px;
+      }
+    }
+    .cart_info{
+      flex: 1;
+      display: flex;
+      .desc{
+        flex: 3;
+        height: 50px;
+        line-height: 50px;
+        padding-left: 20px;
+      }
+      .to_pay{
+        height: 50px;
+        line-height: 50px;
+        background: #FF6D45;
+        flex: 1;
+        padding: 0 15px;
+      }
+    }
+  }
+}
