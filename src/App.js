@@ -7,6 +7,7 @@ import AppHome from './views/AppHome';
 import AppConfirm from './views/AppConfirm';
 import AppUserCenter from './views/AppUserCenter';
 import AppOrders from './views/AppOrders';
+import AppCamera from './views/AppCamera';
 
 import axios from 'axios';
 
@@ -42,6 +43,7 @@ class App extends Component {
           <Route path="/confirm" component={AppConfirm}></Route>
           <Route path="/usercenter" component={AppUserCenter}></Route>
           <Route path="/orders" component={AppOrders}></Route>
+          <Route path="/camera" component={AppCamera}></Route>
           <Route path="*" component={AppHome}></Route>
         </Switch>
       </div>

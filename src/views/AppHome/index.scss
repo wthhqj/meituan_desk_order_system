@@ -1,9 +1,13 @@
 .AppHome{
   height: 100%;
   padding: 0 10px;
-  // background: rgb(202, 202, 202);
   overflow: scroll;
   .header{
+    .title{
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
     .card{
       padding: 10px;
       height: 180px;

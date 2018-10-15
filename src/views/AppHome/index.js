@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-
+import { Icon } from 'antd-mobile';
 import store from '../../store';
 
 import Cart from '../../components/Cart';
@@ -40,7 +40,10 @@ class AppHome extends React.Component {
       <div className="AppHome">
 
         <div className="header">
-          <h1>龙椒美味</h1>
+          <div className="title">
+            <h1>龙椒美味</h1>
+            <Icon type="check-circle" onClick={() => this.props.history.push('/camera')}></Icon>
+          </div>
           <p>中餐</p>
           <div className="card">
             此处是商家信息
