@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  
+    #mycanvas{
+      border: 1px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="mycanvas" width="500" height="500"></canvas>
+  <script>
+    let mycanvas = document.querySelector('#mycanvas');
+    
+    console.log(mycanvas)
+    let ctx = mycanvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.lineWidth = 50;
+    ctx.strokeStyle = 'black';
+    ctx.fillStyle = 'orange';
+
+    ctx.arc(
+      200,
+      200,
+      100,
+      0,
+      Math.PI,
+      true
+    );
+
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+    ctx.font = '50px 微软雅黑';
+    ctx.fillText('zhouyang', 50, 50);
+
+    console.log(ctx.measureText('zhouyang',0 , 0));
+    
+  
+  </script>
+</body>
+</html>
