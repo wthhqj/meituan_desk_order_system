@@ -4,8 +4,6 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import { Button, NavBar, Icon, Card } from 'antd-mobile';
 
-import { CartListContext } from '../../cartList-context';
-
 import store from '../../store';
 
 let Avatar = () => {
@@ -13,6 +11,7 @@ let Avatar = () => {
     <img style={{ width: "30px", height: "30px" }} src="/avatar.jpg"></img>
   </div>
 }
+
 
 let Total = ({ cartList }) => {
   let total = 0;
@@ -30,6 +29,7 @@ let Total = ({ cartList }) => {
     </div>
   )
 }
+
 
 class AppConfirm extends React.Component {
 
@@ -100,5 +100,6 @@ class AppConfirm extends React.Component {
     );
   }
 }
+
 
 export default AppConfirm;

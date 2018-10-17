@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
 
 
-let reducer = function(previousState = {}, action){
+let reducer = function(previousState = { menu: [] }, action){
 
-  let newState ={};
+  let newState = {};
   let menu = previousState.menu;
 
 
@@ -74,8 +74,6 @@ let reducer = function(previousState = {}, action){
   }
 
 }
-
-// const store = createStore(reducer);
 
 const store = createStore(
   reducer, /* preloadedState, */

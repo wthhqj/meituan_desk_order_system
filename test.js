@@ -1,48 +1,67 @@
-import { Drawer, List, NavBar, Icon } from 'antd-mobile';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider, connect } from 'react-redux'
 
-class App1 extends React.Component {
-  state = {
-    open: true,
-  }
-
-  onOpenChange = (...args) => {
-    console.log(args);
-    this.setState({ open: !this.state.open });
-  }
-
+// React component
+class Counter extends Component {
   render() {
-    // fix in codepen
-    const sidebar = (
-      <List>
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i, index) => {
-          if (index === 0) {
-            return (<List.Item key={index}
-              thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              multipleLine
-            >Category</List.Item>);
-          }
-          return (<List.Item key={index}
-            thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-          >Category{index}</List.Item>);
-        })}
-      </List>
-    );
-
-    return (<div>
-      <NavBar icon={<Icon type="ellipsis" />} onLeftClick={this.onOpenChange}>Basic</NavBar>
-      <Drawer
-        className="my-drawer"
-        style={{ minHeight: document.documentElement.clientHeight }}
-        enableDragHandle
-        contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
-        sidebar={sidebar}
-        open={this.state.open}
-        onOpenChange={this.onOpenChange}
-      >
-        Click upper-left corner
-      </Drawer>
-    </div>);
+    const { value, onIncreaseClick } = this.props
+    return (
+      <div>
+        <span>{value}</span>
+        <button onClick={onIncreaseClick}>Increase</button>
+      </div>
+    )
   }
 }
 
-ReactDOM.render(<App1 />, mountNode);
+Counter.propTypes = {
+  value: PropTypes.number.isRequired,
+  onIncreaseClick: PropTypes.func.isRequired
+}
+
+// Action
+const increaseAction = { type: 'increase' }
+
+// Reducer
+function counter(state = { count: 0 }, action) {
+  const count = state.count
+  switch (action.type) {
+    case 'increase':
+      return { count: count + 1 }
+    default:
+      return state
+  }
+}
+
+// Store
+const store = createStore(counter)
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  return {
+    value: state.count
+  }
+}
+
+// Map Redux actions to component props
+function mapDispatchToProps(dispatch) {
+  return {
+    onIncreaseClick: () => dispatch(increaseAction)
+  }
+}
+
+// Connected Component
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)

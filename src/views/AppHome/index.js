@@ -1,41 +1,16 @@
 import React from 'react';
 import './index.scss';
 import { Icon } from 'antd-mobile';
-import store from '../../store';
 
 import Cart from '../../components/Cart';
 import Good from '../../components/Good';
 
-let cancelListener;
+import { connect } from 'react-redux';
 
 class AppHome extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      menu: []
-    }
-  }
-
-  componentWillMount() {
-    let listener = () => {
-      let menu = store.getState().menu;
-      this.setState({ menu });
-    }
-    cancelListener = store.subscribe(listener);
-  }
-
-  componentDidMount() {
-    let menu = store.getState().menu;
-    if (!menu) return;
-    this.setState({ menu: menu });
-  }
-
-  componentWillUnmount(){
-    cancelListener();
-  }
-
   render() {
+    let { menu } = this.props;
     return (
       <div className="AppHome">
 
@@ -50,25 +25,29 @@ class AppHome extends React.Component {
           </div>
         </div>
 
-        <div className="center">
-          <div className="left_list">
-            <ul>
-              {this.state.menu.map((item, index) => {
-                return <li key={index}>{item.category}</li>
-              })}
-            </ul>
+        {
+          menu ?
+          <div className="center">
+            <div className="left_list">
+              <ul>
+                {menu.map((item, index) => {
+                  return <li key={index}>{item.category}</li>
+                })}
+              </ul>
+            </div>
+            <div className="right_list">
+              <ul>
+                {menu.map((item, index) =>
+                  <li key={index}>
+                    <p>{item.category}</p>
+                    {item.goods.map((good, index) => <Good key={index} good={good}></Good>)}
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
-          <div className="right_list">
-            <ul>
-              {this.state.menu.map((item, index) =>
-                <li key={index}>
-                  <p>{item.category}</p>
-                  {item.goods.map((good, index) => <Good key={index} good={good}></Good>)}
-                </li>
-              )}
-            </ul>
-          </div>
-        </div>
+          : null
+        }
 
         <Cart></Cart>
 
@@ -77,4 +56,12 @@ class AppHome extends React.Component {
   }
 }
 
-export default AppHome;
+function mapStateToProps (state) {
+  return {
+    menu: state.menu
+  }
+}
+
+let HOComponent = connect(mapStateToProps)(AppHome);
+
+export default HOComponent;

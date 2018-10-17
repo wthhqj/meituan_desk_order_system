@@ -1,24 +1,18 @@
 import React from 'react';
 import './index.scss';
 
-import store from '../../store';
+// import store from '../../store';
+
+import { connect } from 'react-redux';
 
 import { Button } from 'antd-mobile';
 
 class Good extends React.Component {
 
-  handleClick(good) {
-    let action = {
-      type: 'CHOOSE_THE_GOOD',
-      payLoad: {
-        good: good
-      }
-    }
-    store.dispatch(action);
-  }
-
   render() {
-    let good = this.props.good;
+    // let good = this.props.good;
+
+    let { chooseTheGood, good } = this.props;
 
     return (
       <div className="Good">
@@ -32,7 +26,7 @@ class Good extends React.Component {
             <Button
               size="small"
               style={{ color: '#ff6700' }}
-              onClick={this.handleClick.bind(this, good)}
+              onClick={() => chooseTheGood(good)}
             >
               加入购物车
             </Button>
@@ -42,5 +36,26 @@ class Good extends React.Component {
     )
   }
 }
+function mapStateToProps () {
+  return {}
+}
 
-export default Good;
+function mapDispatchToProps (dispatch) {
+  let chooseTheGood = (good) => {
+    let action = {
+      type: 'CHOOSE_THE_GOOD',
+      payLoad: {
+        good: good
+      }
+    }
+    dispatch(action);
+  }
+  
+  return {
+    chooseTheGood: chooseTheGood
+  }
+}
+
+let HOComponent = connect(mapStateToProps, mapDispatchToProps)(Good);
+
+export default HOComponent;
