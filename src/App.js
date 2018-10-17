@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import AppHome from './views/AppHome';
 import AppConfirm from './views/AppConfirm';
@@ -59,6 +59,7 @@ function mapDispatchToProps(dispatch) {
     }
     dispatch(action);
   }
+
   return {
     loadMenu: loadMenu
   }
@@ -66,4 +67,6 @@ function mapDispatchToProps(dispatch) {
 
 let HOComponent = connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default HOComponent;
+// export default HOComponent;
+export default withRouter(HOComponent);
+// export default App;

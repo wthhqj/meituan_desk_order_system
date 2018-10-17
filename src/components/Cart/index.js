@@ -15,13 +15,8 @@ class Cart extends React.Component {
       showCartList: false
     }
 
-    this.gotoConfirm = this.gotoConfirm.bind(this);
     this.showCartList = this.showCartList.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  gotoConfirm() {
-    this.props.history.replace('/confirm');
   }
 
   showCartList() {
@@ -42,23 +37,23 @@ class Cart extends React.Component {
   }
 
   render() {
-    let { cartList, totalQuantity, totalMoney } = this.props;
+    let { cartList, totalQuantity, totalMoney, history } = this.props;
 
     return (
       <div className="Cart">
-        <div className="left" onClick={() => this.props.history.push('/confirm')}>+</div>
-        {/* <div className="right">
+        <div className="left">+</div>
+        <div className="right">
           <span className="cart_icon" onClick={this.showCartList}>
             <Badge className="badge" text={totalQuantity} size="small" ></Badge>
             <i className="iconfont icon-shoppingcart-over"></i>
           </span>
           <div className="cart_info">
             <span className="desc">{totalQuantity ? `共${totalMoney}元` : '购物车是空的'}</span>
-            {totalQuantity ? <span className="to_pay" onClick={this.gotoConfirm}>选好了</span> : null}
+            {totalQuantity ? <span className="to_pay" onClick={ () => history.push('/confirm') }>选好了</span> : null}
           </div>
-        </div> */}
+        </div>
 
-        {/* <Modal
+        <Modal
           visible={this.state.showCartList}
           transparent
           onClose={() => this.setState({ showCartList: false })}
@@ -91,7 +86,7 @@ class Cart extends React.Component {
               })}
             </List>
           </div>
-        </Modal> */}
+        </Modal>
       </div>
     );
   }
@@ -158,8 +153,4 @@ function mapDispatchToProps(dispatch) {
 
 let HOComponent = connect(mapStateToProps, mapDispatchToProps)(Cart);
 
-
-// let a = withRouter(HOComponent)
-// console.log(a);
-
-export default withRouter(Cart);
+export default withRouter(HOComponent);

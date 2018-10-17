@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 import 'antd-mobile/dist/antd-mobile.css';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import store from './store';
